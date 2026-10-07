@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Teleop.Subsystems.Shooter;
 
-@TeleOp (name = "Shooter Tester", group = "testing")
+@TeleOp (name = "Shooter Tester", group = "AA_Main")
 public class ShooterTester extends OpMode {
     private Shooter shooter;
     GamepadEx gp1;
