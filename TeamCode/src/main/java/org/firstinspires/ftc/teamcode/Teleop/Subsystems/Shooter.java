@@ -10,15 +10,17 @@ import com.arcrobotics.ftclib.controller.PIDController;
 @Config
 public class Shooter {
 
-    public static double kP = 0;
+    public static double kP = 0.000012;
     public static double kI = 0;
     public static double kD = 0;
-    public static double kF = 0;
+    public static double kF = 0.000189;
     public static double targetRPM = 0;
 
     public static double toleranceRPM = 50;
 
     public final MotorEx shooterMotor1;
+
+    public final MotorEx shooterMotor2;
     private final VoltageSensor voltageSensor;
     public final PIDController shooterPID;
     public boolean isEnabled = false;
@@ -33,7 +35,9 @@ public class Shooter {
     public Shooter(OpMode opMode){
         shooterMotor1 = new MotorEx(opMode.hardwareMap, "shooter", Motor.GoBILDA.BARE);
         shooterMotor1.setRunMode(Motor.RunMode.RawPower);
-
+        shooterMotor2 = new MotorEx(opMode.hardwareMap, "shooter2", Motor.GoBILDA.BARE);
+        shooterMotor2.setRunMode(Motor.RunMode.RawPower);
+;
         voltageSensor = opMode.hardwareMap.voltageSensor.iterator().next();
 
         shooterPID = new PIDController(kP, kI, kD);
@@ -41,7 +45,9 @@ public class Shooter {
     }
 
     public void setPower(double power){
+
         shooterMotor1.set(power);
+        shooterMotor2.set(power);
     }
     public void enable(){
         isEnabled = true;
@@ -91,6 +97,7 @@ public class Shooter {
         targetRPM = 0;
         shooterPower = 0;
         shooterMotor1.stopAndResetEncoder();
+        shooterMotor2.stopAndResetEncoder();
     }
 
 

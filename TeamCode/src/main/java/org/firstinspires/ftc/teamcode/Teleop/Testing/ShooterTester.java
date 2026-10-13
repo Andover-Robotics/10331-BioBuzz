@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Testing;
+package org.firstinspires.ftc.teamcode.Teleop.Testing;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
@@ -9,13 +9,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Teleop.Subsystems.Shooter;
 
-@TeleOp (name = "Shooter Tester", group = "AA_Main")
+@TeleOp (name = "Shooter Two Tester", group = "testing")
 public class ShooterTester extends OpMode {
     private Shooter shooter;
     GamepadEx gp1;
 
-    private static final double incr_decr_RPM = 10; //increment/decrement the RPM
-    
+    private static final double incr_decr_RPM = 50; //increment/decrement the RPM
+
 
     @Override
     public void init() {
