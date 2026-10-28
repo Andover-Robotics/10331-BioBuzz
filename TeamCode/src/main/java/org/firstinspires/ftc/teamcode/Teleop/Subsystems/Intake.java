@@ -10,8 +10,11 @@ public class Intake {
     //awesome intake stuff
     public final MotorEx intakeMotor;
 
+    public static double power;
+
     public Intake (OpMode opMode){
         intakeMotor = new MotorEx(opMode.hardwareMap, "intake", Motor.GoBILDA.BARE);
+
 
 
     }
