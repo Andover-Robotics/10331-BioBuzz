@@ -4,14 +4,19 @@ import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
+import com.pedropathing.follower.Follower;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+import org.firstinspires.ftc.teamcode.pedro.Constants;
 
 @TeleOp
 public class MainTeleOp extends LinearOpMode {
     Bot bot;
 
     GamepadEx gp1, gp2;
+    private Follower follower;
+
 
     private FtcDashboard ftcDash = FtcDashboard.getInstance();
 
@@ -22,6 +27,7 @@ public class MainTeleOp extends LinearOpMode {
 
         gp1 = new GamepadEx(gamepad1);
         gp2 = new GamepadEx(gamepad2);
+        follower = Constants.create(hardwareMap);
 
         while (opModeInInit() && !isStarted() && !isStopRequested()){
             TelemetryPacket packet = new TelemetryPacket();
