@@ -37,7 +37,8 @@ public class Shooter {
         shooterMotor1.setRunMode(Motor.RunMode.RawPower);
         shooterMotor2 = new MotorEx(opMode.hardwareMap, "shooter2", Motor.GoBILDA.BARE);
         shooterMotor2.setRunMode(Motor.RunMode.RawPower);
-        shooterMotor2.setInverted(true);
+        shooterMotor2.setInverted(false);
+        //shooterMotor1.setInverted(true);
         voltageSensor = opMode.hardwareMap.voltageSensor.iterator().next();
 
         shooterPID = new PIDController(kP, kI, kD);
