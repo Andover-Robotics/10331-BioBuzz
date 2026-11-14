@@ -14,8 +14,6 @@ import org.firstinspires.ftc.teamcode.pedro.Constants;
 public class MainTeleOp extends LinearOpMode {
     Bot bot;
 
-
-
     GamepadEx gp1, gp2;
     private Follower follower;
 
@@ -45,8 +43,6 @@ public class MainTeleOp extends LinearOpMode {
             gp1.readButtons();
             gp2.readButtons();
             drive();
-
-
 
             //put all controller commands here
             //add any telemetry

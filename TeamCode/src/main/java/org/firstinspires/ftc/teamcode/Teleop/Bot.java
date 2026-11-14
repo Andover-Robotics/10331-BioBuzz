@@ -19,7 +19,7 @@ public class Bot {
     }
 
     public void teleOpIntake(){
-        intake.setPower(1);
+        //standard intaking method for teleop
     }
 
     public void teleOpShoot(){
