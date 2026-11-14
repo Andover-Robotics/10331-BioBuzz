@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Teleop.Testing;
 
 import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.arcrobotics.ftclib.gamepad.GamepadKeys;
@@ -8,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Teleop.Subsystems.Shooter;
-
+@Config
 @TeleOp (name = "Shooter Two Tester", group = "testing")
 public class ShooterTester extends OpMode {
     private Shooter shooter;
@@ -32,7 +33,7 @@ public class ShooterTester extends OpMode {
         if (gp1.wasJustPressed(GamepadKeys.Button.A)){
             Shooter.targetRPM += incr_decr_RPM;
         }
-        if (gp1.wasJustPressed(GamepadKeys.Button.B)){
+        if (gp1.wasJustPressed(GamepadKeys.Button.B)) {
             Shooter.targetRPM -= incr_decr_RPM;
         }
 
@@ -41,6 +42,7 @@ public class ShooterTester extends OpMode {
         telemetry.addData("TargetRPM: ", shooter.getTargetRPM());
         telemetry.addData("CurrentRPM: ", shooter.getRPM());
         telemetry.addData("At Speed: ", shooter.checkSpeed());
+        telemetry.addData("static kP value", Shooter.kP);
         telemetry.update();
 
     }
