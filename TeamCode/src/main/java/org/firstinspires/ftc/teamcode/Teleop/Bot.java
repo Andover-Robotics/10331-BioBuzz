@@ -1,8 +1,12 @@
 package org.firstinspires.ftc.teamcode.Teleop;
 
+import com.arcrobotics.ftclib.command.SequentialCommandGroup;
+import com.arcrobotics.ftclib.command.WaitCommand;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.pedropathing.ivy.*;
 
 import org.firstinspires.ftc.teamcode.Teleop.Subsystems.Intake;
+import org.firstinspires.ftc.teamcode.Teleop.Subsystems.PIDController;
 import org.firstinspires.ftc.teamcode.Teleop.Subsystems.Shooter;
 
 public class Bot {
@@ -11,6 +15,10 @@ public class Bot {
     public OpMode opMode;
     public Shooter shooter;
     public Intake intake;
+
+    public PIDController pidController;
+
+    public static double sleeptime;
     public Bot(OpMode opMode){
         this.opMode = opMode;
         this.shooter = new Shooter(opMode);
@@ -19,8 +27,10 @@ public class Bot {
     }
 
     public void teleOpIntake(){
-        //standard intaking method for teleop
+        //intake.closeGate();
+        intake.setPower(1);
     }
+
 
     public void teleOpShoot(){
         //standard shooting for teleop
@@ -31,12 +41,10 @@ public class Bot {
     }
 
     public void teleOpPrep(){
-        //prep robot during init for teleop
+
     }
 
-    public void autoPrep(){
-        //prep robot during init for auto
-    }
+    //commands
 
 
 }
